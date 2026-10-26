@@ -1,0 +1,4 @@
+*.sql.gz
+*.dump
+.DS_Store
+Thumbs.db

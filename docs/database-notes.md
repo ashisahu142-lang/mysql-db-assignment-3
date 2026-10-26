@@ -18,12 +18,12 @@ A class database may use a different job field name (such as `job_id`) or store 
 
 ## Test data
 
-`sql/00-setup-sample-data.sql` creates database `mysql_db_assignment_3`, drops and recreates its `employees` table, and inserts eight illustrative rows. Values are designed to exercise the filters (departments 30/100, salary boundary values, 1987 hire dates, names with both `b` and `c`, six-character surnames, and named jobs/surnames). This is synthetic practice data, not a transcription of an official HR dataset.
+`sql/00-setup-sample-data.sql` creates database `mysql_db_assignment_3`, creates `employees` only when absent, and inserts eight illustrative rows with `INSERT IGNORE`. It does not drop or replace existing tables. Values are designed to exercise the filters (departments 30/100, salary boundary values, 1987 hire dates, names with both `b` and `c`, six-character surnames, and named jobs/surnames). This is synthetic practice data, not a transcription of an official HR dataset.
 
 ## Dependencies and execution order
 
 - MySQL 8.0 or compatible MySQL SQL client/server.
-- Run `sql/00-setup-sample-data.sql` first in a disposable environment; it contains `DROP TABLE IF EXISTS employees` and recreates that table.
+- Run `sql/00-setup-sample-data.sql` first in a fresh assignment test database. The script is non-destructive; if an incompatible `employees` table already exists, review it and select another test database rather than deleting it.
 - Then run any `sql/01-question.sql` through `sql/11-question.sql` independently. Each answer is a read-only `SELECT` and expects the current database to be `mysql_db_assignment_3` or another database containing the assumed table.
 
 ## Interpretation assumptions

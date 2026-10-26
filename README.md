@@ -24,7 +24,7 @@ From a MySQL client, run the setup script first:
 SOURCE /absolute/path/to/sql/00-setup-sample-data.sql;
 ```
 
-The setup script creates/selects `mysql_db_assignment_3` and replaces its `employees` test table. Then run one or more numbered answers, for example:
+The setup script creates/selects `mysql_db_assignment_3` and creates `employees` only if it is absent. It does not drop or replace an existing table; duplicate sample employee IDs are ignored. Use a fresh assignment test database so pre-existing rows do not change your results. Then run one or more numbered answers, for example:
 
 ```text
 SOURCE /absolute/path/to/sql/01-question.sql;

@@ -3,8 +3,7 @@
 CREATE DATABASE IF NOT EXISTS mysql_db_assignment_3;
 USE mysql_db_assignment_3;
 
-DROP TABLE IF EXISTS employees;
-CREATE TABLE employees (
+CREATE TABLE IF NOT EXISTS employees (
     employee_id INT PRIMARY KEY,
     first_name VARCHAR(50) NOT NULL,
     last_name VARCHAR(50) NOT NULL,
@@ -14,7 +13,7 @@ CREATE TABLE employees (
     job VARCHAR(50) NOT NULL
 );
 
-INSERT INTO employees (employee_id, first_name, last_name, salary, department_id, hire_date, job) VALUES
+INSERT IGNORE INTO employees (employee_id, first_name, last_name, salary, department_id, hire_date, job) VALUES
 (1, 'Rebecca', 'BLAKE',  9000.00, 30,  '1987-02-10', 'Programmer'),
 (2, 'Barbara', 'SCOTT', 10000.00, 100, '1987-07-15', 'Shipping Clerk'),
 (3, 'Cecilia', 'KING',  16000.00, 30,  '1986-11-20', 'Programmer'),
